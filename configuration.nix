@@ -117,7 +117,13 @@
     autosuggestions.enable = true;
 
     # enable powerlevel10k
-    plugins = with pkgs.zshPlugins; [ powerlevel10k ];
+    plugins = with pkgs; [
+      {
+        file = "powerlevel10k.zsh-theme";
+        name = "powerlevel10k";
+        src = "${zsh-powerlevel10k}/share/zsh-powerlevel10k";
+      }
+    ];
   };
 
   # List services that you want to enable:
