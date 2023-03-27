@@ -111,9 +111,13 @@
     {
       enable = true;
       theme = "powerlevel10k";
-      plugins = [ "git" "zsh-autosuggestions" "zsh-syntax-highlighting" "extract" "autojump"];
-      customPkgs = with pkgs; [ zsh-powerlevel10k zsh-autosuggestions zsh-syntax-highlighting autojump ];
+      plugins = [ "git" "extract" "autojump" ];
     };
+    syntaxHighlighting.enable = true;
+    autosuggestions.enable = true;
+
+    # enable powerlevel10k
+    plugins = with pkgs.zshPlugins; [ powerlevel10k ];
   };
 
   # List services that you want to enable:
