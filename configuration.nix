@@ -82,6 +82,7 @@
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
     hashedPassword = "$6$lhYtoAr6rqb$IKxf2/m8dgEFuOsvfNScRLTBWWDy51fdIKKkiibmRnLtFmA3dpZRalbm/5bfwittN.WKxkKr8vlvjM3SzfH141";
+    shell = pkgs.zsh;
   #   packages = with pkgs; [
   #     firefox
   #     thunderbird
@@ -102,11 +103,21 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+  programs.zsh =
+  {
+    enable = true;
+    ohMyZsh =
+    {
+      enable = true;
+      theme = "powerlevel10k";
+      plugins = [ "git" "zsh-autosuggestions" "zsh-syntax-highlighting" "extract" "autojump"];
+    };
+  };
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
