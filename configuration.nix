@@ -93,6 +93,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim zsh wget tree gparted git
+    zsh-powerlevel10k zsh-autosuggestions zsh-syntax-highlighting autojump
   ]
   ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
