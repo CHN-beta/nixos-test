@@ -13,6 +13,7 @@
   # install with https://shen.hong.io/installing-nixos-with-encrypted-root-partition-and-seperate-boot-partition/
   boot = {
     loader = {
+      timeout = null;
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
@@ -72,7 +73,6 @@
     pulse.enable = true;
   };
 
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -91,7 +91,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim zsh wget tree gparted git
-  ];
+  ]
+  ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
