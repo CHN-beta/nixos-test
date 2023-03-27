@@ -112,6 +112,7 @@
       enable = true;
       theme = "powerlevel10k";
       plugins = [ "git" "zsh-autosuggestions" "zsh-syntax-highlighting" "extract" "autojump"];
+      customPkgs = with pkgs; [ zsh-powerlevel10k zsh-autosuggestions zsh-syntax-highlighting autojump ];
     };
   };
 
