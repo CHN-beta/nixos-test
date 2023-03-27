@@ -22,6 +22,7 @@
       header = "/dev/disk/by-partuuid/b0255c40-fd3c-4c95-9af7-4d64ad2e450f";
       allowDiscards = true;
     };
+    initrd.systemd.enable = true;
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
   };
 
