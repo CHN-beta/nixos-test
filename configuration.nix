@@ -109,21 +109,13 @@
     enable = true;
     ohMyZsh =
     {
-      enable = true;
+      enable = false;
       theme = "powerlevel10k";
       plugins = [ "git" "extract" "autojump" ];
     };
     syntaxHighlighting.enable = true;
     autosuggestions.enable = true;
-
-    # enable powerlevel10k
-    plugins = with pkgs; [
-      {
-        file = "powerlevel10k.zsh-theme";
-        name = "powerlevel10k";
-        src = "${zsh-powerlevel10k}/share/zsh-powerlevel10k";
-      }
-    ];
+    enableCompletion = true;
   };
 
   # List services that you want to enable:
