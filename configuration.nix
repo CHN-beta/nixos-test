@@ -94,6 +94,7 @@
   environment.systemPackages = with pkgs; [
     vim zsh wget tree gparted git
     zsh-powerlevel10k zsh-autosuggestions zsh-syntax-highlighting autojump
+    nix-output-monitor
   ]
   ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
