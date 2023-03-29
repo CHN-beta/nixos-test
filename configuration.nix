@@ -126,7 +126,7 @@
   ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
   fonts = {
-    enableFontDir = true;
+    FontDir.enable = true;
     fonts = with pkgs; [
       noto-fonts
       source-han-sans
@@ -136,26 +136,25 @@
       jetbrains-mono
       nerdfonts
     ];
-  };
-
-  fontconfig = {
-    defaultFonts = {
-      emoji = [ "Noto Color Emoji" ];
-      monospace = [
-        "Noto Sans Mono CJK SC"
-        "Sarasa Mono SC"
-        "DejaVu Sans Mono"
-      ];
-      sansSerif = [
-        "Noto Sans CJK SC"
-        "Source Han Sans SC"
-        "DejaVu Sans"
-      ];
-      serif = [
-        "Noto Serif CJK SC"
-        "Source Han Serif SC"
-        "DejaVu Serif"
-      ];
+    fontconfig = {
+      defaultFonts = {
+        emoji = [ "Noto Color Emoji" ];
+        monospace = [
+          "Noto Sans Mono CJK SC"
+          "Sarasa Mono SC"
+          "DejaVu Sans Mono"
+        ];
+        sansSerif = [
+          "Noto Sans CJK SC"
+          "Source Han Sans SC"
+          "DejaVu Sans"
+        ];
+        serif = [
+          "Noto Serif CJK SC"
+          "Source Han Serif SC"
+          "DejaVu Serif"
+        ];
+      };
     };
   };
 
