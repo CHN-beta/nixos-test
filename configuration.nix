@@ -98,6 +98,7 @@
         # p10k instant prompt
         P10K_INSTANT_PROMPT="$XDG_CACHE_HOME/p10k-instant-prompt-''${(%):-%n}.zsh"
         [[ ! -r "$P10K_INSTANT_PROMPT" ]] || source "$P10K_INSTANT_PROMPT"
+        POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
       '';
 
       plugins = with pkgs; [
