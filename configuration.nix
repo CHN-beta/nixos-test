@@ -122,7 +122,6 @@
     vim zsh wget tree gparted git
     zsh-powerlevel10k zsh-autosuggestions zsh-syntax-highlighting autojump
     nix-output-monitor
-    fcitx5-with-addons fcitx5-gtk fcitx5-qt fcitx5-rime fcitx5-mozc fcitx5-chinese-addons
   ]
   ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
@@ -164,7 +163,7 @@
     fcitx.engines = with pkgs.fcitx-engines; [ libpinyin cloudpinyin rime mozc ];
     fcitx5.enableRimeData= true;
     fcitx5.addons = with pkgs; [
-      fcitx5-rime fcitx5-chinese-addons
+      fcitx5-rime fcitx5-chinese-addons fcitx5-mozc
     ];
   };
 
