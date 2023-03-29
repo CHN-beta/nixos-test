@@ -41,6 +41,7 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.supportedLocales = [ "zh_CN.UTF-8" "en_US.UTF-8" ];
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -123,6 +124,49 @@
     nix-output-monitor
   ]
   ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
+
+  fonts = {
+    enableFontDir = true;
+    fonts = with pkgs; [
+      noto-fonts
+      source-han-sans
+      source-han-serif
+      source-code-pro
+      hack-font
+      jetbrains-mono
+      nerdfonts
+    ];
+  };
+
+  fontconfig = {
+    defaultFonts = {
+      emoji = [ "Noto Color Emoji" ];
+      monospace = [
+        "Noto Sans Mono CJK SC"
+        "Sarasa Mono SC"
+        "DejaVu Sans Mono"
+      ];
+      sansSerif = [
+        "Noto Sans CJK SC"
+        "Source Han Sans SC"
+        "DejaVu Sans"
+      ];
+      serif = [
+        "Noto Serif CJK SC"
+        "Source Han Serif SC"
+        "DejaVu Serif"
+      ];
+    };
+  };
+
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx.engines = with pkgs.fcitx-engines; [ cloudpinyin rime mozc ];
+    fcitx5.enableRimeData= true;
+    fcitx5.addons = with pkgs; [
+      fcitx5-rime
+    ];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
