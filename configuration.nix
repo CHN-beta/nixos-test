@@ -126,7 +126,7 @@
   ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
   fonts = {
-    FontDir.enable = true;
+    fontDir.enable = true;
     fonts = with pkgs; [
       noto-fonts
       source-han-sans
