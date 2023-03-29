@@ -107,8 +107,9 @@
           src = "${zsh-powerlevel10k}/share/zsh-powerlevel10k";
         }
         {
+          file = "p10k.zsh";
           name = "powerlevel10k-config";
-          src = ./p10k.zsh;
+          src = ./p10k
         }
       ];
     };
