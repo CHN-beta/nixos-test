@@ -160,10 +160,10 @@
 
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx.engines = with pkgs.fcitx-engines; [ cloudpinyin rime mozc ];
+    fcitx.engines = with pkgs.fcitx-engines; [ libpinyin cloudpinyin rime mozc ];
     fcitx5.enableRimeData= true;
     fcitx5.addons = with pkgs; [
-      fcitx5-rime
+      fcitx5-rime fcitx5-chinese-addons
     ];
   };
 
