@@ -79,6 +79,8 @@
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
 
+  virtualisation.waydroid.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
