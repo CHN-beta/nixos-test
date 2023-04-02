@@ -125,7 +125,7 @@
     vim zsh wget tree gparted git
     zsh-powerlevel10k zsh-autosuggestions zsh-syntax-highlighting autojump
     nix-output-monitor
-    firefox google-chrome vscode virt-manager zotero element-desktop tdesktop remmina qbittorrent
+    firefox google-chrome vscode virt-manager zotero element-desktop tdesktop remmina qbittorrent bitwarden
   ]
   ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
