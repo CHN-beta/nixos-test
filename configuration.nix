@@ -136,7 +136,7 @@
     nix-output-monitor
     firefox google-chrome vscode qemu_full virt-manager zotero element-desktop tdesktop remmina qbittorrent bitwarden
     apacheHttpd pigz rar unrar upx snapper snapper-gui docker docker-compose spotify certbot-full crow-translate beep
-    neofetch screen scrcpy ocrmypdf dos2unix pdfgrep texlive-combined-full tldr
+    neofetch screen scrcpy ocrmypdf dos2unix pdfgrep texlive.combined.scheme-full tldr
   ]
   ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
