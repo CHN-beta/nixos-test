@@ -11,6 +11,13 @@
       <home-manager/nixos>
     ];
 
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
   # install with https://shen.hong.io/installing-nixos-with-encrypted-root-partition-and-seperate-boot-partition/
   boot = {
     loader = {
