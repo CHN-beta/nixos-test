@@ -10,16 +10,6 @@
   #     <home-manager/nixos>
   #   ];
 
-  nixpkgs.overlays = [
-    (self: super: {
-      stdenv.hostPlatform = {
-        system = "x86_64-linux";
-        gcc.arch = null;
-        gcc.tune = null;
-      };
-    })
-  ];
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # nix = {
   #   package = pkgs.nixUnstable;
@@ -137,6 +127,10 @@
     apacheHttpd pigz rar unrar upx snapper snapper-gui docker docker-compose spotify certbot-full crow-translate beep
     neofetch screen scrcpy ocrmypdf dos2unix pdfgrep texlive.combined.scheme-full tldr
   ]
+  ++ (
+    let pkgs = nixpkgs { hostSystem = { gcc.arch = "skylake"; gcc.tune = "skylake"; system = "x86_64-linux"; }; };
+      in with pkgs; [ expand-response-params ];
+  )
   ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
   fonts = {
