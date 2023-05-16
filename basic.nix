@@ -13,10 +13,15 @@
   nixpkgs.overlays = [
     (self: super: {
       stdenv = super.stdenv // {
-        system = "x86_64-linux";
-        gcc = super.stdenv.gcc // {
-          arch = "x86-64";
-          tune = "generic";
+        hostPlatform = super.stdenv.hostPlatform // {
+          system = "x86_64-linux";
+          gcc.arch = "x86-64";
+          gcc.tune = "generic";
+        };
+        buildPlatform = super.stdenv.buildPlatform // {
+          system = "x86_64-linux";
+          gcc.arch = "x86-64";
+          gcc.tune = "generic";
         };
       };
     })
