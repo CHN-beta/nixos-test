@@ -12,10 +12,10 @@
 
   nixpkgs.overlays = [
     (self: super: {
-      stdenv = super.stdenv // {
-        hostPlatform.system = "x86_64-linux";
-        hostPlatform.gcc.arch = "x86-64";
-        hostPlatform.gcc.tune = "generic";
+      stdenv.hostPlatform = {
+        system = "x86_64-linux";
+        gcc.arch = null;
+        gcc.tune = null;
       };
     })
   ];
