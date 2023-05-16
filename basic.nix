@@ -88,12 +88,12 @@
 
   virtualisation.waydroid.enable = true;
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  # nixpkgs.hostPlatform = {
-  #   system = "x86_64-linux";
-  #   gcc.arch = "alderlake";
-  #   gcc.tune = "alderlake";
-  # };
+  # nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  nixpkgs.hostPlatform = {
+    system = "x86_64-linux";
+    gcc.arch = "alderlake";
+    gcc.tune = "alderlake";
+  };
   # nixpkgs.localSystem = {
   #   system = "x86_64-linux";
   #   platform = pkgs.lib.systems.platforms.pc64 {
