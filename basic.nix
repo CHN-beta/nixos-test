@@ -88,12 +88,12 @@
 
   virtualisation.waydroid.enable = true;
 
-  # nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  nixpkgs.hostPlatform = {
-    system = "x86_64-linux";
-    gcc.arch = "alderlake";
-    gcc.tune = "alderlake";
-  };
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  # nixpkgs.hostPlatform = {
+  #   system = "x86_64-linux";
+  #   gcc.arch = "alderlake";
+  #   gcc.tune = "alderlake";
+  # };
   # nixpkgs.localSystem = {
   #   system = "x86_64-linux";
   #   platform = pkgs.lib.systems.platforms.pc64 {
@@ -127,10 +127,6 @@
     apacheHttpd pigz rar unrar upx snapper snapper-gui docker docker-compose spotify certbot-full crow-translate beep
     neofetch screen scrcpy ocrmypdf dos2unix pdfgrep texlive.combined.scheme-full tldr
   ]
-  ++ (
-    let pkgs = nixpkgs { hostSystem = { gcc.arch = "skylake"; gcc.tune = "skylake"; system = "x86_64-linux"; }; };
-      in with pkgs; [ expand-response-params ];
-  )
   ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
   fonts = {
