@@ -14,11 +14,9 @@
     (self: super: {
       stdenv = super.stdenv // {
         system = "x86_64-linux";
-        platform = super.stdenv.platform // {
-          gcc = super.stdenv.platform.gcc // {
-            arch = "x86-64";
-            tune = "generic";
-          };
+        gcc = super.stdenv.gcc // {
+          arch = "x86-64";
+          tune = "generic";
         };
       };
     })
