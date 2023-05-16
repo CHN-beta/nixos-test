@@ -93,10 +93,6 @@
     system = "x86_64-linux";
     gcc.arch = "alderlake";
     gcc.tune = "alderlake";
-    platform.gcc = {
-      gcc.arch = "alderlake";
-      gcc.tune = "alderlake";
-    };
   };
   # nixpkgs.localSystem = {
   #   system = "x86_64-linux";
