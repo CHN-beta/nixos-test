@@ -89,9 +89,11 @@
   virtualisation.waydroid.enable = true;
 
   nixpkgs.localSystem = {
-    gcc.arch = "alderlake";
-    gcc.tune = "alderlake";
     system = "x86_64-linux";
+    platform = pkgs.lib.systems.platforms.pc64 {
+      gcc.arch = "alderlake";
+      gcc.tune = "alderlake";
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
