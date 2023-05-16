@@ -10,7 +10,7 @@
   #     <home-manager/nixos>
   #   ];
 
-  overlays = [
+  nixpkgs.overlays = [
     (self: super: {
       stdenv = super.stdenv // {
         system = "x86_64-linux";
