@@ -88,13 +88,21 @@
 
   virtualisation.waydroid.enable = true;
 
-  nixpkgs.localSystem = {
+  # nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  nixpkgs.hostPlatform = {
     system = "x86_64-linux";
-    platform = pkgs.lib.systems.platforms.pc64 {
+    platform.gcc = {
       gcc.arch = "alderlake";
       gcc.tune = "alderlake";
     };
   };
+  # nixpkgs.localSystem = {
+  #   system = "x86_64-linux";
+  #   platform = pkgs.lib.systems.platforms.pc64 {
+  #     gcc.arch = "skylake";
+  #     gcc.tune = "skylake";
+  #   };
+  # };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
